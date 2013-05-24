@@ -6,9 +6,9 @@ Everytime a user takes an action on your webpage, easily send back that event da
 # When should I use this?
 Suppose you want to measure when a user
 
-1. clicks on a "Purchase" button,
-2. clicks on a "No thanks" link
-3. user drags a "Pin It" bookmark to the toolbar.
+1. clicks on a button or link
+2. drags a bookmark to the toolbar
+3. interacts in anyway with a DOM element
 
 You want to capture these user interactions and send them, along with some user data, to the server.
 InstrumentalJS makes this very simple.
