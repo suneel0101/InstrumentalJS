@@ -3,7 +3,7 @@
 Everytime a user takes an action on your webpage, easily send back that event data in JSON to your event logging system.
 
 
-# Why should I use this?
+# When should I use this?
 Suppose you want to measure when a user
 
 1. clicks on a "Purchase" button,
@@ -11,6 +11,7 @@ Suppose you want to measure when a user
 3. user drags a "Pin It" bookmark to the toolbar.
 
 You want to capture these user interactions and send them, along with some user data, to the server.
+InstrumentalJS makes this very simple.
 
 # How do I use it?
 
