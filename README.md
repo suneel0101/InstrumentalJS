@@ -41,7 +41,7 @@ Here is your HTML:
 <button
     data-instrumental-action="clickedPurchase"
     data-instrumental-trigger="click"
-    data-instrumental-itemID="ud2983">Purchase
+    data-instrumental-item-number="ud2983">Purchase
 </button>
 
 <a
@@ -55,9 +55,12 @@ Here is your HTML:
 Here is your JS on that page:
 
 ```javascript
+// In <head>
 <script src="/instrumental.js"></script>
+
+// At the end of <body>
 <script>
-Instrumental({
+Instrumental.activate({
     defaultEndpoint: '/myloggingendpoint', // where the JSON event data will be sent
                                           // can be overriden by specifying data-instrumental-defaultEndpoint on the DOM element
     baseData: {
@@ -71,22 +74,24 @@ Now the page is instrumented to do the following:
 
 1. When a user clicks on the "Purchase" button, an ajax POST will be sent to the defaultEndpoint, "/myloggingendpoint" with the following data:
 
-`
+```
 {
     "action": "clickedPurchase",
     "userID": "298345",
-    "itemID": "ud2983",
+    "itemNumber": "ud2983",
+    "trigger": "click"
  }
-`
+```
 
 2. When a user starts to drag the the bookmark and the "mousedown" event is triggered, an ajax POST will be sent to the non-default endpoint specified "bookmark/endpoint/" with the following data:
 
-`
+```
 {
     "action": "draggedBookmark",
-    "userID": "298345"
+    "userID": "298345",
+    "trigger": "mousedown"
 }
-`
+```
 
 # Dependencies
 You only need jQuery.
