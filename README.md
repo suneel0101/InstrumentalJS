@@ -87,3 +87,6 @@ Now the page is instrumented to do the following:
     "userID": "298345"
 }
 `
+
+# Dependencies
+You only need jQuery.
