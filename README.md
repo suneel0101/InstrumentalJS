@@ -62,7 +62,9 @@ Here is your JS on that page:
 <script>
 Instrumental.activate({
     defaultEndpoint: '/myloggingendpoint', // where the JSON event data will be sent
-                                          // can be overriden by specifying data-instrumental-defaultEndpoint on the DOM element
+                                           // can be overriden by specifying
+                                           // data-instrumental-defaultEndpoint on the
+                                           // element
     baseData: {
         "userID": "298345"
     }
