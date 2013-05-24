@@ -54,5 +54,5 @@
         };
     }
 
-    window.Instrumental = Instrumental;
+    global.Instrumental = Instrumental;
 }(window, jQuery));
