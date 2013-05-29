@@ -55,6 +55,7 @@ Now the page is instrumented to do the following:
 
 
 1. When a user clicks on the "Purchase" button, an ajax POST will be sent to the defaultEndpoint, "/myloggingendpoint" with the following data:
+
 ```
 {
     "action": "clickedPurchase",
@@ -63,6 +64,7 @@ Now the page is instrumented to do the following:
     "trigger": "click"
  }
 ```
+
 2. When a user starts to drag the the bookmark and the "mousedown" event is triggered, an ajax POST will be sent to the non-default endpoint specified "bookmark/endpoint/" with the following data:
 
 ```
