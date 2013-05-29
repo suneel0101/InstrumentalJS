@@ -51,10 +51,7 @@ Instrumental({
 </script>
 ```
 
-Now the page is instrumented to do the following:
-
-
-1. When a user clicks on the "Purchase" button, an ajax POST will be sent to the defaultEndpoint, "/myloggingendpoint" with the following data:
+When a user clicks on the "Purchase" button, an ajax POST will be sent to the defaultEndpoint, "/myloggingendpoint" with the following data:
 
 ```
 {
@@ -65,7 +62,7 @@ Now the page is instrumented to do the following:
  }
 ```
 
-2. When a user starts to drag the the bookmark and the "mousedown" event is triggered, an ajax POST will be sent to the non-default endpoint specified "bookmark/endpoint/" with the following data:
+When a user starts to drag the the bookmark and the "mousedown" event is triggered, an ajax POST will be sent to the non-default endpoint specified "bookmark/endpoint/" with the following data:
 
 ```
 {
