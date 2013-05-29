@@ -18,7 +18,7 @@ The way to instrument your HTML elements is simple. Just add `data-instrumental-
 ```
 
 ### Send back any key-value data you want
-Just add to the DOM element the attribute `data-instrumental-X` where X can be anything and then X and its value will be send back in the JSON data for the event, e.g. when the link above, "#example-link", is clicked, the following event data is sent to the server:
+Just add the html attribute `data-instrumental-X` where X can be anything. X and its value will be send back in the event data, e.g. when the link from the pervious section is clicked, this is sent to the server:
 
 ```json
 {
@@ -28,7 +28,7 @@ Just add to the DOM element the attribute `data-instrumental-X` where X can be a
 ```
 
 ### Specify where to send the data
-Set `endpoint`, URL the event JSON will be sent to, as an attribute of the `Instrumental` JS object and data from all events will be sent there. If you want data from different events to be sent to different endpoints, on the element in question, specify where with the html attribute `data-instrumental-endpoint`.
+Set `Instrumental.endpoint` to the URL you want the event JSON to be sent. If you want data from different events to be sent to different endpoints, on the element in question, specify where to send it via the attribute `data-instrumental-endpoint`.
 
 ### Common data for all events
 In case you have data that you want to be included in every event but don't want to repeat it on each element you're measuring, just add it to  `baseData`: a base dictionary of JSON data to be sent for every event; e.g. user_id
