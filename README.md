@@ -39,10 +39,10 @@ When a user clicks on the "Purchase" button, an ajax POST will be sent to the de
 Specify the following attributes on the elements on which you want to measure the user interaction.
 
 
-* data-instrumental-event: name of the event, e.g. "clickedPurchase"
-* data-instrumental-trigger: jQuery event to listen for, e.g. "mousedown"
-* baseData: a base dictionary of JSON data to be sent for every event; e.g. user_id
-* defaultEndpoint: URL where event JSON data should be send. If you want to send data for different events to different URLs, just add an data-instrumental-defaultEndpoint to the element, with the value being the URL you want to send it to.
+* `data-instrumental-event`: name of the event, e.g. "clickedPurchase"
+* `data-instrumental-trigger`: jQuery event to listen for, e.g. "mousedown"
+* `baseData`: a base dictionary of JSON data to be sent for every event; e.g. user_id
+* `defaultEndpoint`: URL where event JSON data should be send. If you want to send data for different events to different URLs, just add an data-instrumental-defaultEndpoint to the element, with the value being the URL you want to send it to.
 
 The system for including information to be sent back is very flexible.
 ### You can send back any key-value data you want
