@@ -1,5 +1,5 @@
 (function(global, $){
-    function Instrumental(){
+    function Instrumental(options){
         return {
             endpoint: options.endpoint,
             baseData: options.baseData || {},
