@@ -28,7 +28,7 @@ Just add the html attribute `data-instrumental-X` where X can be anything. X and
 ```
 
 ### Specify where to send the data
-Set `Instrumental.endpoint` to the URL you want the event JSON to be sent. If you want data from different events to be sent to different endpoints, on the element in question, specify where to send it via the attribute `data-instrumental-endpoint`.
+Set `Instrumental.endpoint` to the URL you want the data sent. If you want interaction data on different elements to go to different URLs, specify the URL on the element's `data-instrumental-endpoint` attribute.
 
 ### Common data for all events
 In case you have data that you want to be included in every event but don't want to repeat it on each element you're measuring, just add it to  `baseData`: a base dictionary of JSON data to be sent for every event; e.g. user_id
