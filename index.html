@@ -67,7 +67,7 @@
 <h3>
 <a name="specify-where-to-send-the-data" class="anchor" href="#specify-where-to-send-the-data"><span class="octicon octicon-link"></span></a>Specify where to send the data</h3>
 
-<p>Set <code>defaultEndpoint</code>, URL the event JSON will be sent to, as an attribute of the <code>Instrumental</code> JS object and data from all events will be sent there. If you want data from different events to be sent to different endpoints, on the element in question, specify where with the html attribute <code>data-instrumental-endpoint</code>.</p>
+<p>Set <code>endpoint</code>, URL the event JSON will be sent to, as an attribute of the <code>Instrumental</code> JS object and data from all events will be sent there. If you want data from different events to be sent to different endpoints, on the element in question, specify where with the html attribute <code>data-instrumental-endpoint</code>.</p>
 
 <h3>
 <a name="common-data-for-all-events" class="anchor" href="#common-data-for-all-events"><span class="octicon octicon-link"></span></a>Common data for all events</h3>
@@ -90,7 +90,7 @@
 
 <span class="nt">&lt;script&gt;</span>
 <span class="nx">Instrumental</span><span class="p">({</span>
-    <span class="nx">defaultEndpoint</span><span class="o">:</span> <span class="s1">'/myloggingendpoint'</span><span class="p">,</span>
+    <span class="nx">endpoint</span><span class="o">:</span> <span class="s1">'/myloggingendpoint'</span><span class="p">,</span>
     <span class="nx">baseData</span><span class="o">:</span> <span class="p">{</span>
         <span class="s2">"UserID"</span><span class="o">:</span> <span class="s2">"298345"</span>
     <span class="p">}}).</span><span class="nx">activate</span><span class="p">();</span>
