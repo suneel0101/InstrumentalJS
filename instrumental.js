@@ -16,7 +16,7 @@
                 var el = $(selector);
                 var trigger = el.data("instrumental-trigger");
                 // get the URL endpoint to which to POST the event data
-                var url = el.data("defaultEndpoint") || this.defaultEndpoint;
+                var url = el.data("instrumental-endpoint") || this.defaultEndpoint;
                 // when the event is triggered, post the data
                 var data = this.getElementData(el);
                 el.on(trigger, function(){
