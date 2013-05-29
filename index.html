@@ -56,7 +56,7 @@
 <h3>
 <a name="send-back-any-key-value-data-you-want" class="anchor" href="#send-back-any-key-value-data-you-want"><span class="octicon octicon-link"></span></a>Send back any key-value data you want</h3>
 
-<p>Just add to the DOM element the attribute <code>data-instrumental-X</code> where X can be anything and then X and its value will be send back in the JSON data for the event, e.g. when the link above, "#example-link", is clicked, the following event data is sent to the server:</p>
+<p>Just add the html attribute <code>data-instrumental-X</code> where X can be anything. X and its value will be send back in the event data, e.g. when the link from the pervious section is clicked, this is sent to the server:</p>
 
 <div class="highlight"><pre><span class="p">{</span>
     <span class="nt">"Trigger"</span><span class="p">:</span> <span class="s2">"click"</span><span class="p">,</span>
@@ -67,7 +67,7 @@
 <h3>
 <a name="specify-where-to-send-the-data" class="anchor" href="#specify-where-to-send-the-data"><span class="octicon octicon-link"></span></a>Specify where to send the data</h3>
 
-<p>Set <code>endpoint</code>, URL the event JSON will be sent to, as an attribute of the <code>Instrumental</code> JS object and data from all events will be sent there. If you want data from different events to be sent to different endpoints, on the element in question, specify where with the html attribute <code>data-instrumental-endpoint</code>.</p>
+<p>Set <code>Instrumental.endpoint</code> to the URL you want the data sent. If you want interaction data on different elements to go to different URLs, specify the URL on the element's <code>data-instrumental-endpoint</code> attribute.</p>
 
 <h3>
 <a name="common-data-for-all-events" class="anchor" href="#common-data-for-all-events"><span class="octicon octicon-link"></span></a>Common data for all events</h3>
