@@ -2,34 +2,33 @@
     function Instrumental(){
         return {
 
-            activate: function (options) {
-                // Set the defaultEndpoint and baseData
-                this.defaultEndpoint = options.defaultEndpoint;
-                this.baseData = options.defaultEndpoint || {};
+            defaultEndpoint: options.defaultEndpoint,
 
-                // activate event listeners
-                this.activateEventListeners();
-            },
+            baseData: options.baseData || {},
 
-            activateEventListeners: function() {
+            activate: function () {
                 // for each element that has the data-instrumental-action
                 // set, activate an event listener
                 var elements = $("[data-instrumental-action]");
-                elements.forEach(this.activateEventListener);
+                for (var i=0; i < elements.length; i++) {
+                    this.activateEventListener(elements[i]);
+                }
             },
 
-            activateEventListener: function(el) {
+            activateEventListener: function(selector) {
                 // get the element trigger
+                var el = $(selector);
                 var trigger = el.data("instrumental-trigger");
 
                 // get the URL endpoint to which to POST the event data
                 var url = el.data("defaultEndpoint") || this.defaultEndpoint;
 
                 // when the event is triggered, post the data
+                var data = this.getElementData(el);
                 el.on(trigger, function(){
                     $.post(
                         url,
-                        this.getElementData(el));
+                        data);
                 });
             },
 
@@ -42,7 +41,7 @@
                 // Construct the data dictionary from the
                 // $.data() values that starts with data-instrumental
                 for (var key in data) {
-                    if ("instrumental" in key) {
+                    if (key.match("instrumental")) {
                         var instrumentalKey = key.replace("instrumental", "");
                         instrumentalData[instrumentalKey] = data[key];
                     }
