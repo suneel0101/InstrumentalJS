@@ -28,31 +28,25 @@ When a user clicks on the "Purchase" button, an ajax POST will be sent to the de
 
 ```
 {
-    "action": "clickedPurchase",
-    "userID": "298345",
-    "itemNumber": "ud2983",
-    "trigger": "click"
+    "Action": "clickedPurchase",
+    "UserID": "298345",
+    "ItemNumber": "ud2983",
+    "Trigger": "click"
  }
 ```
 
 # API
 Specify the following attributes on the elements on which you want to measure the user interaction.
 
-### 1. `data-instrumental-action`
-This is the action name that will be sent back in the JSON as "action"
 
-### 2. `data-instrumental-trigger`
-This is the jQuery event to listen for on the element. For example "click", "mousedown", "ready".
+* data-instrumental-event: name of the event, e.g. "clickedPurchase"
+* data-instrumental-trigger: jQuery event to listen for, e.g. "mousedown"
+* baseData: a base dictionary of JSON data to be sent for every event; e.g. user_id
+* defaultEndpoint: URL where event JSON data should be send. If you want to send data for different events to different URLs, just add an data-instrumental-defaultEndpoint to the element, with the value being the URL you want to send it to.
 
-### 3. `defaultEndpoint`: URL where this event JSON data should be sent
-When instantiating an Instrumental object, you can set `defaultEndpoint` to some URL for the event data to be sent to.
-If you want to send different events to different URL endpoints, just specify `data-instrumental-defaultEndpoint` on the element.
-
-### 4. `baseData`: a base dictionary of JSON data to be sent for every event
-If you want the userID or anything else to be sent for every event, just add it to this dictionary.
-
-### 5. Any key-value data you want
-To send back any data related to the event, just specify `data-instrumental-X` where X can be anything and then X and its value will be send back in the JSON data for the event.
+The system for including information to be sent back is very flexible.
+### You can send back any key-value data you want
+Just add to the DOM element the attribute `data-instrumental-X` where X can be anything and then X and its value will be send back in the JSON data for the event.
 
 # Dependencies
 You only need jQuery.
