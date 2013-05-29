@@ -1,6 +1,6 @@
 # instrumental.js
 
-Everytime a user takes an action on your webpage, use instrumental.js to easily send back that event data in JSON to your event logging system.
+Every time a user takes an action on your webpage, use instrumental.js to easily send back that event data in JSON to your event logging system.
 
 # Usage
 The way to instrument your HTML elements is simple. Just add `data-instrumental-*` attributes to them. Then at the end of the body, instantiate the Instrumental object with the parameters discussed below and call activate().

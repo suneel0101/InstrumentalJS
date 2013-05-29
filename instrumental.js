@@ -4,7 +4,7 @@
             endpoint: options.endpoint,
             baseData: options.baseData || {},
             activate: function () {
-                // for each element that has the data-instrumental-action
+                // for each element that has the data-instrumental-event
                 // set, activate an event listener
                 var elements = $("[data-instrumental-event]");
                 for (var i=0; i < elements.length; i++) {
