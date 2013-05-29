@@ -7,16 +7,14 @@ Just add html attributes to the elements you want to measure the interaction on;
 
 ### Set the event trigger
 
-* `data-instrumental-trigger`: should be set to the jQuery event to listen to, e.g. "click", "mouseover", etc
-
-### Send back any key-value data you want
-Just add to the DOM element the attribute `data-instrumental-X` where X can be anything and then X and its value will be send back in the JSON data for the event, e.g. the following link
+`data-instrumental-trigger` should equal the jQuery event to listen to, e.g. "click", "mouseover", etc, e.g.
 
 ```html
-<a data-instrumental-trigger="click" data-instrumental-thingy="blah">Blah</a>
+<a id="example-link" data-instrumental-trigger="click" data-instrumental-thingy="blah">Blah</a>
 ```
 
-when clicked would send back
+### Send back any key-value data you want
+Just add to the DOM element the attribute `data-instrumental-X` where X can be anything and then X and its value will be send back in the JSON data for the event, e.g. when the link above, "#example-link" is clicked, the following event data is sent to the server:
 
 ```json
 {
