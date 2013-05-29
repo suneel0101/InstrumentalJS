@@ -27,7 +27,8 @@
             },
             getElementData: function(el) {
                 var data = el.data();
-                // The data dictionary starts off as baseData
+                // instrumentalData starts off as a copy baseData
+                // we copy baseData since we don't want to modify this.baseData
                 var instrumentalData = $.extend({}, this.baseData);
                 // Construct the data dictionary from the
                 // $.data() values that starts with data-instrumental
