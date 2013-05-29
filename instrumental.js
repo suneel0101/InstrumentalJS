@@ -9,7 +9,7 @@
             activate: function () {
                 // for each element that has the data-instrumental-action
                 // set, activate an event listener
-                var elements = $("[data-instrumental-action]");
+                var elements = $("[data-instrumental-event]");
                 for (var i=0; i < elements.length; i++) {
                     this.activateEventListener(elements[i]);
                 }
