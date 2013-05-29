@@ -18,7 +18,7 @@ The way to instrument your HTML elements is simple. Just add `data-instrumental-
 ```
 
 ### Send back any key-value data you want
-Just add to the DOM element the attribute `data-instrumental-X` where X can be anything and then X and its value will be send back in the JSON data for the event, e.g. when the link above, "#example-link" is clicked, the following event data is sent to the server:
+Just add to the DOM element the attribute `data-instrumental-X` where X can be anything and then X and its value will be send back in the JSON data for the event, e.g. when the link above, "#example-link", is clicked, the following event data is sent to the server:
 
 ```json
 {
