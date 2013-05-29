@@ -13,29 +13,7 @@ Suppose you want to measure when a user
 You want to capture these user interactions and send them, along with some user data, to the server.
 InstrumentalJS makes this very simple.
 
-# How do I use it?
-
-Specify the following attributes on the elements on which you want to measure the user interaction.
-
-### 1. `data-instrumental-action`
-This is the action name that will be sent back in the JSON as "action"
-
-### 2. `data-instrumental-trigger`
-This is the jQuery event to listen for on the element. For example "click", "mousedown", "ready".
-
-### 3. `defaultEndpoint`: URL where this event JSON data should be sent
-When instantiating an Instrumental object, you can set `defaultEndpoint` to some URL for the event data to be sent to.
-If you want to send different events to different URL endpoints, just specify `data-instrumental-defaultEndpoint` on the element.
-
-### 4. `baseData`: a base dictionary of JSON data to be sent for every event
-If you want the userID or anything else to be sent for every event, just add it to this dictionary.
-
-### 5. Any key-value data you want
-To send back any data related to the event, just specify `data-instrumental-X` where X can be anything and then X and its value will be send back in the JSON data for the event.
-
-
 # Example
-
 Here is your HTML:
 
 ```html
@@ -95,6 +73,25 @@ Now the page is instrumented to do the following:
     "trigger": "mousedown"
 }
 ```
+
+# API
+Specify the following attributes on the elements on which you want to measure the user interaction.
+
+### 1. `data-instrumental-action`
+This is the action name that will be sent back in the JSON as "action"
+
+### 2. `data-instrumental-trigger`
+This is the jQuery event to listen for on the element. For example "click", "mousedown", "ready".
+
+### 3. `defaultEndpoint`: URL where this event JSON data should be sent
+When instantiating an Instrumental object, you can set `defaultEndpoint` to some URL for the event data to be sent to.
+If you want to send different events to different URL endpoints, just specify `data-instrumental-defaultEndpoint` on the element.
+
+### 4. `baseData`: a base dictionary of JSON data to be sent for every event
+If you want the userID or anything else to be sent for every event, just add it to this dictionary.
+
+### 5. Any key-value data you want
+To send back any data related to the event, just specify `data-instrumental-X` where X can be anything and then X and its value will be send back in the JSON data for the event.
 
 # Dependencies
 You only need jQuery.
