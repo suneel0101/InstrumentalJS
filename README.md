@@ -28,7 +28,7 @@ Just add to the DOM element the attribute `data-instrumental-X` where X can be a
 ```
 
 ### Specify where to send the data
-Set `defaultEndpoint`, URL the event JSON will be sent to, as an attribute of the `Instrumental` JS object and data from all events will be sent there. If you want data from different events to be sent to different endpoints, on the element in question, specify where with the html attribute `data-instrumental-endpoint`.
+Set `endpoint`, URL the event JSON will be sent to, as an attribute of the `Instrumental` JS object and data from all events will be sent there. If you want data from different events to be sent to different endpoints, on the element in question, specify where with the html attribute `data-instrumental-endpoint`.
 
 ### Common data for all events
 In case you have data that you want to be included in every event but don't want to repeat it on each element you're measuring, just add it to  `baseData`: a base dictionary of JSON data to be sent for every event; e.g. user_id
@@ -49,7 +49,7 @@ In case you have data that you want to be included in every event but don't want
 
 <script>
 Instrumental({
-    defaultEndpoint: '/myloggingendpoint',
+    endpoint: '/myloggingendpoint',
     baseData: {
         "UserID": "298345"
     }}).activate();

@@ -1,7 +1,7 @@
 (function(global, $){
     function Instrumental(){
         return {
-            defaultEndpoint: options.defaultEndpoint,
+            endpoint: options.endpoint,
             baseData: options.baseData || {},
             activate: function () {
                 // for each element that has the data-instrumental-action
@@ -16,7 +16,7 @@
                 var el = $(selector);
                 var trigger = el.data("instrumental-trigger");
                 // get the URL endpoint to which to POST the event data
-                var url = el.data("instrumental-endpoint") || this.defaultEndpoint;
+                var url = el.data("instrumental-endpoint") || this.endpoint;
                 // when the event is triggered, post the data
                 var data = this.getElementData(el);
                 el.on(trigger, function(){
