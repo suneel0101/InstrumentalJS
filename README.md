@@ -1,4 +1,4 @@
-# InstrumentalJS
+# instrumental.js
 
 Everytime a user takes an action on your webpage, easily send back that event data in JSON to your event logging system.
 
