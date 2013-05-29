@@ -1,37 +1,34 @@
 <!DOCTYPE html>
 <html>
-
   <head>
-    <meta charset='utf-8' />
-    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
-    <meta name="description" content="instrumental.js : Instrument your pages better." />
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link href='https://fonts.googleapis.com/css?family=Architects+Daughter' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="stylesheets/pygment_trac.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print" />
 
-    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
 
-    <title>instrumental.js</title>
+    <title>instrumental.js by suneel0101</title>
   </head>
 
   <body>
+    <header>
+      <div class="inner">
+        <h1>instrumental.js</h1>
+        <h2>Instrument your pages better.</h2>
+        <a href="https://github.com/suneel0101/instrumental.js" class="button"><small>View project on</small>GitHub</a>
+      </div>
+    </header>
 
-    <!-- HEADER -->
-    <div id="header_wrap" class="outer">
-        <header class="inner">
-          <a id="forkme_banner" href="https://github.com/suneel0101/instrumental.js">View on GitHub</a>
-
-          <h1 id="project_title">instrumental.js</h1>
-          <h2 id="project_tagline">Instrument your pages better.</h2>
-
-            <section id="downloads">
-              <a class="zip_download_link" href="https://github.com/suneel0101/instrumental.js/zipball/master">Download this project as a .zip file</a>
-              <a class="tar_download_link" href="https://github.com/suneel0101/instrumental.js/tarball/master">Download this project as a tar.gz file</a>
-            </section>
-        </header>
-    </div>
-
-    <!-- MAIN CONTENT -->
-    <div id="main_content_wrap" class="outer">
-      <section id="main_content" class="inner">
-        <h1>
+    <div id="content-wrapper">
+      <div class="inner clearfix">
+        <section id="main-content">
+          <h1>
 <a name="instrumentaljs" class="anchor" href="#instrumentaljs"><span class="octicon octicon-link"></span></a>instrumental.js</h1>
 
 <p>Everytime a user takes an action on your webpage, use instrumental.js to easily send back that event data in JSON to your event logging system.</p>
@@ -45,7 +42,7 @@
 
 // In body
 <span class="nt">&lt;button</span>
-    <span class="na">data-instrumental-action=</span><span class="s">"clickedPurchase"</span>
+    <span class="na">data-instrumental-event=</span><span class="s">"clickedPurchase"</span>
     <span class="na">data-instrumental-trigger=</span><span class="s">"click"</span>
     <span class="na">data-instrumental-item-number=</span><span class="s">"ud2983"</span><span class="nt">&gt;</span>Purchase
 <span class="nt">&lt;/button&gt;</span>
@@ -62,10 +59,10 @@
 <p>When a user clicks on the "Purchase" button, an ajax POST will be sent to the defaultEndpoint, "/myloggingendpoint" with the following data:</p>
 
 <pre><code>{
-    "action": "clickedPurchase",
-    "userID": "298345",
-    "itemNumber": "ud2983",
-    "trigger": "click"
+    "Event": "clickedPurchase",
+    "UserID": "298345",
+    "ItemNumber": "ud2983",
+    "Trigger": "click"
  }
 </code></pre>
 
@@ -74,50 +71,45 @@
 
 <p>Specify the following attributes on the elements on which you want to measure the user interaction.</p>
 
-<h3>
-<a name="1-data-instrumental-action" class="anchor" href="#1-data-instrumental-action"><span class="octicon octicon-link"></span></a>1. <code>data-instrumental-action</code>
-</h3>
-
-<p>This is the action name that will be sent back in the JSON as "action"</p>
-
-<h3>
-<a name="2-data-instrumental-trigger" class="anchor" href="#2-data-instrumental-trigger"><span class="octicon octicon-link"></span></a>2. <code>data-instrumental-trigger</code>
-</h3>
-
-<p>This is the jQuery event to listen for on the element. For example "click", "mousedown", "ready".</p>
-
-<h3>
-<a name="3-defaultendpoint-url-where-this-event-json-data-should-be-sent" class="anchor" href="#3-defaultendpoint-url-where-this-event-json-data-should-be-sent"><span class="octicon octicon-link"></span></a>3. <code>defaultEndpoint</code>: URL where this event JSON data should be sent</h3>
-
-<p>When instantiating an Instrumental object, you can set <code>defaultEndpoint</code> to some URL for the event data to be sent to.
-If you want to send different events to different URL endpoints, just specify <code>data-instrumental-defaultEndpoint</code> on the element.</p>
+<ul>
+<li>
+<code>data-instrumental-event</code>: name of the event, e.g. "clickedPurchase"</li>
+<li>
+<code>data-instrumental-trigger</code>: jQuery event to listen for, e.g. "mousedown"</li>
+<li>
+<code>baseData</code>: a base dictionary of JSON data to be sent for every event; e.g. user_id</li>
+<li>
+<code>defaultEndpoint</code>: URL where event JSON data should be send. If you want to send data for different events to different URLs, just add an data-instrumental-defaultEndpoint to the element, with the value being the URL you want to send it to.</li>
+</ul><p>The system for including information to be sent back is very flexible.</p>
 
 <h3>
-<a name="4-basedata-a-base-dictionary-of-json-data-to-be-sent-for-every-event" class="anchor" href="#4-basedata-a-base-dictionary-of-json-data-to-be-sent-for-every-event"><span class="octicon octicon-link"></span></a>4. <code>baseData</code>: a base dictionary of JSON data to be sent for every event</h3>
+<a name="you-can-send-back-any-key-value-data-you-want" class="anchor" href="#you-can-send-back-any-key-value-data-you-want"><span class="octicon octicon-link"></span></a>You can send back any key-value data you want</h3>
 
-<p>If you want the userID or anything else to be sent for every event, just add it to this dictionary.</p>
-
-<h3>
-<a name="5-any-key-value-data-you-want" class="anchor" href="#5-any-key-value-data-you-want"><span class="octicon octicon-link"></span></a>5. Any key-value data you want</h3>
-
-<p>To send back any data related to the event, just specify <code>data-instrumental-X</code> where X can be anything and then X and its value will be send back in the JSON data for the event.</p>
+<p>Just add to the DOM element the attribute <code>data-instrumental-X</code> where X can be anything and then X and its value will be send back in the JSON data for the event.</p>
 
 <h1>
 <a name="dependencies" class="anchor" href="#dependencies"><span class="octicon octicon-link"></span></a>Dependencies</h1>
 
 <p>You only need jQuery.</p>
-      </section>
+        </section>
+
+        <aside id="sidebar">
+          <a href="https://github.com/suneel0101/instrumental.js/zipball/master" class="button">
+            <small>Download</small>
+            .zip file
+          </a>
+          <a href="https://github.com/suneel0101/instrumental.js/tarball/master" class="button">
+            <small>Download</small>
+            .tar.gz file
+          </a>
+
+          <p class="repo-owner"><a href="https://github.com/suneel0101/instrumental.js"></a> is maintained by <a href="https://github.com/suneel0101">suneel0101</a>.</p>
+
+          <p>This page was generated by <a href="pages.github.com">GitHub Pages</a> using the Architect theme by <a href="http://twitter.com/jasonlong">Jason Long</a>.</p>
+        </aside>
+      </div>
     </div>
 
-    <!-- FOOTER  -->
-    <div id="footer_wrap" class="outer">
-      <footer class="inner">
-        <p class="copyright">instrumental.js maintained by <a href="https://github.com/suneel0101">suneel0101</a></p>
-        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
-      </footer>
-    </div>
-
-    
-
+  
   </body>
 </html>
