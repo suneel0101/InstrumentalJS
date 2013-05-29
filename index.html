@@ -37,6 +37,44 @@
 <p>Everytime a user takes an action on your webpage, use instrumental.js to easily send back that event data in JSON to your event logging system.</p>
 
 <h1>
+<a name="usage" class="anchor" href="#usage"><span class="octicon octicon-link"></span></a>Usage</h1>
+
+<p>The way to instrument your HTML elements is simple. Just add <code>data-instrumental-*</code> attributes to them. Then at the end of the body, instantiate the Instrumental object with the parameters discussed below and call activate().</p>
+
+<h3>
+<a name="set-the-event-trigger" class="anchor" href="#set-the-event-trigger"><span class="octicon octicon-link"></span></a>Set the event trigger</h3>
+
+<p><code>data-instrumental-trigger</code> should equal the jQuery event to listen to, e.g. "click", "mouseover", etc, e.g.</p>
+
+<div class="highlight"><pre><span class="nt">&lt;a</span>
+  <span class="na">id=</span><span class="s">"example-link"</span>
+  <span class="na">data-instrumental-trigger=</span><span class="s">"click"</span>
+  <span class="na">data-instrumental-thingy=</span><span class="s">"blah"</span><span class="nt">&gt;</span>Blah
+<span class="nt">&lt;/a&gt;</span>
+</pre></div>
+
+<h3>
+<a name="send-back-any-key-value-data-you-want" class="anchor" href="#send-back-any-key-value-data-you-want"><span class="octicon octicon-link"></span></a>Send back any key-value data you want</h3>
+
+<p>Just add to the DOM element the attribute <code>data-instrumental-X</code> where X can be anything and then X and its value will be send back in the JSON data for the event, e.g. when the link above, "#example-link", is clicked, the following event data is sent to the server:</p>
+
+<div class="highlight"><pre><span class="p">{</span>
+    <span class="nt">"Trigger"</span><span class="p">:</span> <span class="s2">"click"</span><span class="p">,</span>
+    <span class="nt">"Thingy"</span><span class="p">:</span> <span class="s2">"blah"</span>
+<span class="p">}</span>
+</pre></div>
+
+<h3>
+<a name="specify-where-to-send-the-data" class="anchor" href="#specify-where-to-send-the-data"><span class="octicon octicon-link"></span></a>Specify where to send the data</h3>
+
+<p>Set <code>defaultEndpoint</code>, URL the event JSON will be sent to, as an attribute of the <code>Instrumental</code> JS object and data from all events will be sent there. If you want data from different events to be sent to different endpoints, on the element in question, specify where with the html attribute <code>data-instrumental-endpoint</code>.</p>
+
+<h3>
+<a name="common-data-for-all-events" class="anchor" href="#common-data-for-all-events"><span class="octicon octicon-link"></span></a>Common data for all events</h3>
+
+<p>In case you have data that you want to be included in every event but don't want to repeat it on each element you're measuring, just add it to  <code>baseData</code>: a base dictionary of JSON data to be sent for every event; e.g. user_id</p>
+
+<h1>
 <a name="example" class="anchor" href="#example"><span class="octicon octicon-link"></span></a>Example</h1>
 
 <div class="highlight"><pre>// In <span class="nt">&lt;head&gt;</span>
@@ -45,16 +83,16 @@
 
 // In body
 <span class="nt">&lt;button</span>
-    <span class="na">data-instrumental-event=</span><span class="s">"clickedPurchase"</span>
-    <span class="na">data-instrumental-trigger=</span><span class="s">"click"</span>
-    <span class="na">data-instrumental-item-number=</span><span class="s">"ud2983"</span><span class="nt">&gt;</span>Purchase
+  <span class="na">data-instrumental-event=</span><span class="s">"clickedPurchase"</span>
+  <span class="na">data-instrumental-trigger=</span><span class="s">"click"</span>
+  <span class="na">data-instrumental-item-number=</span><span class="s">"ud2983"</span><span class="nt">&gt;</span>Purchase
 <span class="nt">&lt;/button&gt;</span>
 
 <span class="nt">&lt;script&gt;</span>
 <span class="nx">Instrumental</span><span class="p">({</span>
     <span class="nx">defaultEndpoint</span><span class="o">:</span> <span class="s1">'/myloggingendpoint'</span><span class="p">,</span>
     <span class="nx">baseData</span><span class="o">:</span> <span class="p">{</span>
-        <span class="s2">"userID"</span><span class="o">:</span> <span class="s2">"298345"</span>
+        <span class="s2">"UserID"</span><span class="o">:</span> <span class="s2">"298345"</span>
     <span class="p">}}).</span><span class="nx">activate</span><span class="p">();</span>
 <span class="nt">&lt;/script&gt;</span>
 </pre></div>
@@ -68,27 +106,6 @@
     "Trigger": "click"
  }
 </code></pre>
-
-<h1>
-<a name="api" class="anchor" href="#api"><span class="octicon octicon-link"></span></a>API</h1>
-
-<p>Specify the following attributes on the elements on which you want to measure the user interaction.</p>
-
-<ul>
-<li>
-<code>data-instrumental-event</code>: name of the event, e.g. "clickedPurchase"</li>
-<li>
-<code>data-instrumental-trigger</code>: jQuery event to listen for, e.g. "mousedown"</li>
-<li>
-<code>baseData</code>: a base dictionary of JSON data to be sent for every event; e.g. user_id</li>
-<li>
-<code>defaultEndpoint</code>: URL where event JSON data should be send. If you want to send data for different events to different URLs, just add an data-instrumental-defaultEndpoint to the element, with the value being the URL you want to send it to.</li>
-</ul><p>The system for including information to be sent back is very flexible.</p>
-
-<h3>
-<a name="you-can-send-back-any-key-value-data-you-want" class="anchor" href="#you-can-send-back-any-key-value-data-you-want"><span class="octicon octicon-link"></span></a>You can send back any key-value data you want</h3>
-
-<p>Just add to the DOM element the attribute <code>data-instrumental-X</code> where X can be anything and then X and its value will be send back in the JSON data for the event.</p>
 
 <h1>
 <a name="dependencies" class="anchor" href="#dependencies"><span class="octicon octicon-link"></span></a>Dependencies</h1>
