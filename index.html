@@ -4,11 +4,11 @@
   <head>
     <meta charset='utf-8' />
     <meta http-equiv="X-UA-Compatible" content="chrome=1" />
-    <meta name="description" content="Instrumentaljs : Instrument your pages better." />
+    <meta name="description" content="instrumental.js : Instrument your pages better." />
 
     <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
 
-    <title>Instrumentaljs</title>
+    <title>instrumental.js</title>
   </head>
 
   <body>
@@ -16,14 +16,14 @@
     <!-- HEADER -->
     <div id="header_wrap" class="outer">
         <header class="inner">
-          <a id="forkme_banner" href="https://github.com/suneel0101/InstrumentalJS">View on GitHub</a>
+          <a id="forkme_banner" href="https://github.com/suneel0101/instrumental.js">View on GitHub</a>
 
-          <h1 id="project_title">Instrumentaljs</h1>
+          <h1 id="project_title">instrumental.js</h1>
           <h2 id="project_tagline">Instrument your pages better.</h2>
 
             <section id="downloads">
-              <a class="zip_download_link" href="https://github.com/suneel0101/InstrumentalJS/zipball/master">Download this project as a .zip file</a>
-              <a class="tar_download_link" href="https://github.com/suneel0101/InstrumentalJS/tarball/master">Download this project as a tar.gz file</a>
+              <a class="zip_download_link" href="https://github.com/suneel0101/instrumental.js/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/suneel0101/instrumental.js/tarball/master">Download this project as a tar.gz file</a>
             </section>
         </header>
     </div>
@@ -32,58 +32,31 @@
     <div id="main_content_wrap" class="outer">
       <section id="main_content" class="inner">
         <h1>
-<a name="instrumentaljs" class="anchor" href="#instrumentaljs"><span class="octicon octicon-link"></span></a>InstrumentalJS</h1>
+<a name="instrumentaljs" class="anchor" href="#instrumentaljs"><span class="octicon octicon-link"></span></a>instrumental.js</h1>
 
-<p>Everytime a user takes an action on your webpage, easily send back that event data in JSON to your event logging system.</p>
-
-<h1>
-<a name="when-should-i-use-this" class="anchor" href="#when-should-i-use-this"><span class="octicon octicon-link"></span></a>When should I use this?</h1>
-
-<p>Suppose you want to measure when a user</p>
-
-<ol>
-<li>clicks on a button or link</li>
-<li>drags a bookmark to the toolbar</li>
-<li>interacts in anyway with a DOM element</li>
-</ol><p>You want to capture these user interactions and send them, along with some user data, to the server.
-InstrumentalJS makes this very simple.</p>
+<p>Everytime a user takes an action on your webpage, use instrumental.js to easily send back that event data in JSON to your event logging system.</p>
 
 <h1>
 <a name="example" class="anchor" href="#example"><span class="octicon octicon-link"></span></a>Example</h1>
 
-<p>Here is your HTML:</p>
+<div class="highlight"><pre>// In <span class="nt">&lt;head&gt;</span>
+    <span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"/jquery.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
+    <span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"/instrumental.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
 
-<div class="highlight"><pre><span class="nt">&lt;button</span>
+// In body
+<span class="nt">&lt;button</span>
     <span class="na">data-instrumental-action=</span><span class="s">"clickedPurchase"</span>
     <span class="na">data-instrumental-trigger=</span><span class="s">"click"</span>
     <span class="na">data-instrumental-item-number=</span><span class="s">"ud2983"</span><span class="nt">&gt;</span>Purchase
 <span class="nt">&lt;/button&gt;</span>
 
-<span class="nt">&lt;a</span>
-    <span class="na">data-instrumental-action=</span><span class="s">"draggedBookmark"</span>
-    <span class="na">data-instrumental-trigger=</span><span class="s">"mousedown"</span>
-    <span class="na">data-instrumental-defaultEndpoint=</span><span class="s">"bookmark/endpoint/"</span><span class="nt">&gt;</span>Drag me!
-<span class="nt">&lt;/a&gt;</span>
-
-</pre></div>
-
-<p>Here is your JS on that page:</p>
-
-<div class="highlight"><pre><span class="c1">// In &lt;head&gt;</span>
-<span class="o">&lt;</span><span class="nx">script</span> <span class="nx">src</span><span class="o">=</span><span class="s2">"/instrumental.js"</span><span class="o">&gt;&lt;</span><span class="err">/script&gt;</span>
-
-<span class="c1">// At the end of &lt;body&gt;</span>
-<span class="o">&lt;</span><span class="nx">script</span><span class="o">&gt;</span>
+<span class="nt">&lt;script&gt;</span>
 <span class="nx">Instrumental</span><span class="p">({</span>
-    <span class="nx">defaultEndpoint</span><span class="o">:</span> <span class="s1">'/myloggingendpoint'</span><span class="p">,</span> <span class="c1">// where the JSON event data will be sent</span>
-                                           <span class="c1">// can be overriden by specifying</span>
-                                           <span class="c1">// data-instrumental-defaultEndpoint on the</span>
-                                           <span class="c1">// element</span>
+    <span class="nx">defaultEndpoint</span><span class="o">:</span> <span class="s1">'/myloggingendpoint'</span><span class="p">,</span>
     <span class="nx">baseData</span><span class="o">:</span> <span class="p">{</span>
         <span class="s2">"userID"</span><span class="o">:</span> <span class="s2">"298345"</span>
-    <span class="p">}</span>
-<span class="p">}).</span><span class="nx">activate</span><span class="p">();</span>
-<span class="o">&lt;</span><span class="err">/script&gt;</span>
+    <span class="p">}}).</span><span class="nx">activate</span><span class="p">();</span>
+<span class="nt">&lt;/script&gt;</span>
 </pre></div>
 
 <p>When a user clicks on the "Purchase" button, an ajax POST will be sent to the defaultEndpoint, "/myloggingendpoint" with the following data:</p>
@@ -94,15 +67,6 @@ InstrumentalJS makes this very simple.</p>
     "itemNumber": "ud2983",
     "trigger": "click"
  }
-</code></pre>
-
-<p>When a user starts to drag the the bookmark and the "mousedown" event is triggered, an ajax POST will be sent to the non-default endpoint specified "bookmark/endpoint/" with the following data:</p>
-
-<pre><code>{
-    "action": "draggedBookmark",
-    "userID": "298345",
-    "trigger": "mousedown"
-}
 </code></pre>
 
 <h1>
@@ -148,7 +112,7 @@ If you want to send different events to different URL endpoints, just specify <c
     <!-- FOOTER  -->
     <div id="footer_wrap" class="outer">
       <footer class="inner">
-        <p class="copyright">Instrumentaljs maintained by <a href="https://github.com/suneel0101">suneel0101</a></p>
+        <p class="copyright">instrumental.js maintained by <a href="https://github.com/suneel0101">suneel0101</a></p>
         <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
       </footer>
     </div>
