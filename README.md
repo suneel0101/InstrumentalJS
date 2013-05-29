@@ -10,7 +10,11 @@ The way to instrument your HTML elements is simple. Just add `data-instrumental-
 `data-instrumental-trigger` should equal the jQuery event to listen to, e.g. "click", "mouseover", etc, e.g.
 
 ```html
-<a id="example-link" data-instrumental-trigger="click" data-instrumental-thingy="blah">Blah</a>
+<a
+  id="example-link"
+  data-instrumental-trigger="click"
+  data-instrumental-thingy="blah">Blah
+</a>
 ```
 
 ### Send back any key-value data you want
@@ -38,9 +42,9 @@ In case you have data that you want to be included in every event but don't want
 
 // In body
 <button
-    data-instrumental-event="clickedPurchase"
-    data-instrumental-trigger="click"
-    data-instrumental-item-number="ud2983">Purchase
+  data-instrumental-event="clickedPurchase"
+  data-instrumental-trigger="click"
+  data-instrumental-item-number="ud2983">Purchase
 </button>
 
 <script>
