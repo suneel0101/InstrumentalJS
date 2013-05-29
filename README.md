@@ -10,7 +10,7 @@ Everytime a user takes an action on your webpage, use instrumental.js to easily 
 
 // In body
 <button
-    data-instrumental-action="clickedPurchase"
+    data-instrumental-event="clickedPurchase"
     data-instrumental-trigger="click"
     data-instrumental-item-number="ud2983">Purchase
 </button>
@@ -28,7 +28,7 @@ When a user clicks on the "Purchase" button, an ajax POST will be sent to the de
 
 ```
 {
-    "Action": "clickedPurchase",
+    "Event": "clickedPurchase",
     "UserID": "298345",
     "ItemNumber": "ud2983",
     "Trigger": "click"
