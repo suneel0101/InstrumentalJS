@@ -4,18 +4,17 @@ Everytime a user takes an action on your webpage, use instrumental.js to easily 
 
 # Example
 ```html
-<head>
+// In <head>
     <script src="/jquery.js"></script>
     <script src="/instrumental.js"></script>
-</head>
-<body>
+
+// In body
 <button
     data-instrumental-action="clickedPurchase"
     data-instrumental-trigger="click"
     data-instrumental-item-number="ud2983">Purchase
 </button>
 
-// At the end of <body>
 <script>
 Instrumental({
     defaultEndpoint: '/myloggingendpoint',
@@ -23,7 +22,6 @@ Instrumental({
         "userID": "298345"
     }}).activate();
 </script>
-</body>
 ```
 
 When a user clicks on the "Purchase" button, an ajax POST will be sent to the defaultEndpoint, "/myloggingendpoint" with the following data:
