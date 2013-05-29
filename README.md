@@ -47,7 +47,7 @@ In case you have data that you want to be included in every event but don't want
 Instrumental({
     defaultEndpoint: '/myloggingendpoint',
     baseData: {
-        "userID": "298345"
+        "UserID": "298345"
     }}).activate();
 </script>
 ```
