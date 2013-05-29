@@ -86,11 +86,9 @@ InstrumentalJS makes this very simple.</p>
 <span class="o">&lt;</span><span class="err">/script&gt;</span>
 </pre></div>
 
-<p>Now the page is instrumented to do the following:</p>
+<p>When a user clicks on the "Purchase" button, an ajax POST will be sent to the defaultEndpoint, "/myloggingendpoint" with the following data:</p>
 
-<ol>
-<li>When a user clicks on the "Purchase" button, an ajax POST will be sent to the defaultEndpoint, "/myloggingendpoint" with the following data:</li>
-</ol><pre><code>{
+<pre><code>{
     "action": "clickedPurchase",
     "userID": "298345",
     "itemNumber": "ud2983",
@@ -98,9 +96,9 @@ InstrumentalJS makes this very simple.</p>
  }
 </code></pre>
 
-<ol>
-<li>When a user starts to drag the the bookmark and the "mousedown" event is triggered, an ajax POST will be sent to the non-default endpoint specified "bookmark/endpoint/" with the following data:</li>
-</ol><pre><code>{
+<p>When a user starts to drag the the bookmark and the "mousedown" event is triggered, an ajax POST will be sent to the non-default endpoint specified "bookmark/endpoint/" with the following data:</p>
+
+<pre><code>{
     "action": "draggedBookmark",
     "userID": "298345",
     "trigger": "mousedown"
