@@ -31,11 +31,13 @@
     <!-- MAIN CONTENT -->
     <div id="main_content_wrap" class="outer">
       <section id="main_content" class="inner">
-        <h1>InstrumentalJS</h1>
+        <h1>
+<a name="instrumentaljs" class="anchor" href="#instrumentaljs"><span class="octicon octicon-link"></span></a>InstrumentalJS</h1>
 
 <p>Everytime a user takes an action on your webpage, easily send back that event data in JSON to your event logging system.</p>
 
-<h1>When should I use this?</h1>
+<h1>
+<a name="when-should-i-use-this" class="anchor" href="#when-should-i-use-this"><span class="octicon octicon-link"></span></a>When should I use this?</h1>
 
 <p>Suppose you want to measure when a user</p>
 
@@ -46,34 +48,8 @@
 </ol><p>You want to capture these user interactions and send them, along with some user data, to the server.
 InstrumentalJS makes this very simple.</p>
 
-<h1>How do I use it?</h1>
-
-<p>Specify the following attributes on the elements on which you want to measure the user interaction.</p>
-
-<h3>1. <code>data-instrumental-action</code>
-</h3>
-
-<p>This is the action name that will be sent back in the JSON as "action"</p>
-
-<h3>2. <code>data-instrumental-trigger</code>
-</h3>
-
-<p>This is the jQuery event to listen for on the element. For example "click", "mousedown", "ready".</p>
-
-<h3>3. <code>defaultEndpoint</code>: URL where this event JSON data should be sent</h3>
-
-<p>When instantiating an Instrumental object, you can set <code>defaultEndpoint</code> to some URL for the event data to be sent to.
-If you want to send different events to different URL endpoints, just specify <code>data-instrumental-defaultEndpoint</code> on the element.</p>
-
-<h3>4. <code>baseData</code>: a base dictionary of JSON data to be sent for every event</h3>
-
-<p>If you want the userID or anything else to be sent for every event, just add it to this dictionary.</p>
-
-<h3>5. Any key-value data you want</h3>
-
-<p>To send back any data related to the event, just specify <code>data-instrumental-X</code> where X can be anything and then X and its value will be send back in the JSON data for the event.</p>
-
-<h1>Example</h1>
+<h1>
+<a name="example" class="anchor" href="#example"><span class="octicon octicon-link"></span></a>Example</h1>
 
 <p>Here is your HTML:</p>
 
@@ -98,7 +74,7 @@ If you want to send different events to different URL endpoints, just specify <c
 
 <span class="c1">// At the end of &lt;body&gt;</span>
 <span class="o">&lt;</span><span class="nx">script</span><span class="o">&gt;</span>
-<span class="nx">Instrumental</span><span class="p">.</span><span class="nx">activate</span><span class="p">({</span>
+<span class="nx">Instrumental</span><span class="p">({</span>
     <span class="nx">defaultEndpoint</span><span class="o">:</span> <span class="s1">'/myloggingendpoint'</span><span class="p">,</span> <span class="c1">// where the JSON event data will be sent</span>
                                            <span class="c1">// can be overriden by specifying</span>
                                            <span class="c1">// data-instrumental-defaultEndpoint on the</span>
@@ -106,7 +82,7 @@ If you want to send different events to different URL endpoints, just specify <c
     <span class="nx">baseData</span><span class="o">:</span> <span class="p">{</span>
         <span class="s2">"userID"</span><span class="o">:</span> <span class="s2">"298345"</span>
     <span class="p">}</span>
-<span class="p">});</span>
+<span class="p">}).</span><span class="nx">activate</span><span class="p">();</span>
 <span class="o">&lt;</span><span class="err">/script&gt;</span>
 </pre></div>
 
@@ -131,7 +107,41 @@ If you want to send different events to different URL endpoints, just specify <c
 }
 </code></pre>
 
-<h1>Dependencies</h1>
+<h1>
+<a name="api" class="anchor" href="#api"><span class="octicon octicon-link"></span></a>API</h1>
+
+<p>Specify the following attributes on the elements on which you want to measure the user interaction.</p>
+
+<h3>
+<a name="1-data-instrumental-action" class="anchor" href="#1-data-instrumental-action"><span class="octicon octicon-link"></span></a>1. <code>data-instrumental-action</code>
+</h3>
+
+<p>This is the action name that will be sent back in the JSON as "action"</p>
+
+<h3>
+<a name="2-data-instrumental-trigger" class="anchor" href="#2-data-instrumental-trigger"><span class="octicon octicon-link"></span></a>2. <code>data-instrumental-trigger</code>
+</h3>
+
+<p>This is the jQuery event to listen for on the element. For example "click", "mousedown", "ready".</p>
+
+<h3>
+<a name="3-defaultendpoint-url-where-this-event-json-data-should-be-sent" class="anchor" href="#3-defaultendpoint-url-where-this-event-json-data-should-be-sent"><span class="octicon octicon-link"></span></a>3. <code>defaultEndpoint</code>: URL where this event JSON data should be sent</h3>
+
+<p>When instantiating an Instrumental object, you can set <code>defaultEndpoint</code> to some URL for the event data to be sent to.
+If you want to send different events to different URL endpoints, just specify <code>data-instrumental-defaultEndpoint</code> on the element.</p>
+
+<h3>
+<a name="4-basedata-a-base-dictionary-of-json-data-to-be-sent-for-every-event" class="anchor" href="#4-basedata-a-base-dictionary-of-json-data-to-be-sent-for-every-event"><span class="octicon octicon-link"></span></a>4. <code>baseData</code>: a base dictionary of JSON data to be sent for every event</h3>
+
+<p>If you want the userID or anything else to be sent for every event, just add it to this dictionary.</p>
+
+<h3>
+<a name="5-any-key-value-data-you-want" class="anchor" href="#5-any-key-value-data-you-want"><span class="octicon octicon-link"></span></a>5. Any key-value data you want</h3>
+
+<p>To send back any data related to the event, just specify <code>data-instrumental-X</code> where X can be anything and then X and its value will be send back in the JSON data for the event.</p>
+
+<h1>
+<a name="dependencies" class="anchor" href="#dependencies"><span class="octicon octicon-link"></span></a>Dependencies</h1>
 
 <p>You only need jQuery.</p>
       </section>
